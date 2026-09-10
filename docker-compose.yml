@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  chess-app:
+    build: .
+    container_name: multiplayer-chess-server
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - JWT_SECRET=super-secret-chess-jwt-key-aws-production-2026
+      - MONGODB_URI=mongodb://mongo:27017/chess_db
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: multiplayer-chess-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

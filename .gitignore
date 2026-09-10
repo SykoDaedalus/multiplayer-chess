@@ -1,0 +1,17 @@
+# Sensitive Environment & Credentials
+.env
+.env.production
+.env.local
+
+# Dependency directories
+node_modules/
+
+# Local databases & logs
+*.db
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS metadata
+.DS_Store
+Thumbs.db
